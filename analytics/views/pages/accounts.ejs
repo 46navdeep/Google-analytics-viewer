@@ -1,0 +1,26 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<body>
+    <h1>Hi <%= info.username%></h1>
+    <h2>Total views available for your account are: <%= info.totalResults %> </h2>
+    <% for(let i = 0; i < posts.length; i++) { %>
+            <a href='#/reports' onclick="return setValue('<%= posts[i].id %>')"><h3><div><%= posts[i].name %></div></a><div><p>WebPropertyId:<%= posts[i].webPropertyId %></br></div></p></h3>
+    <% } %>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+<script>
+  function setValue(id) {
+    $.ajax({
+    method: 'POST',
+    url: '/reports',
+    data: { Id: id },
+    success: function(result) {
+      console.log(result);
+      document.write(JSON.stringify(result));
+    }
+  })
+  return true;
+  }
+  </script>
+
+</body>
+</html>

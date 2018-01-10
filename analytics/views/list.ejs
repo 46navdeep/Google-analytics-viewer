@@ -1,0 +1,13 @@
+<html>
+  <body>
+        <h3>Total views available for <%= nav.username %> are: <%= JSON.stringify(nav.items.length) %></h3>
+
+        <% for(var i=0; i<JSON.stringify(nav.items.length); i++) {%>
+   <tr>
+     <td>
+       <a href='<%= nav.items[i].parentLink.href %>'><%= JSON.stringify(nav.items[i].name)%> </a><p>id:<%= JSON.stringify(nav.items[0].accountId)%> WebPropertyId:<%= JSON.stringify(nav.items[0].webPropertyId)%>  </p></br></br></br>
+     </td>
+   </tr>
+<% } %>
+  </body>
+</html>
